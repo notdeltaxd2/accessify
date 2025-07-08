@@ -7,9 +7,9 @@ const app = new Hono();
 
 app.get("/api/spotify-token", handler.honoHandler);
 
-app.get("/", (req, res) => {
-  res.send("Hello, world!");
-});;
+app.get("/", (c) => {
+  return c.json({ message: "Hello, world!" });
+});
 
 app.onError((err: unknown, c: Context) => {
 	logWithTimestamp("error", err);
