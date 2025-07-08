@@ -7,6 +7,10 @@ const app = new Hono();
 
 app.get("/api/spotify-token", handler.honoHandler);
 
+app.get("/", (req, res) => {
+  res.send("Hello, world!");
+});;
+
 app.onError((err: unknown, c: Context) => {
 	logWithTimestamp("error", err);
 	return c.json({ error: "Internal Server Error" }, 500);
