@@ -5,7 +5,7 @@ import { logWithTimestamp } from "./utils/logger";
 const handler = new SpotifyTokenHandler();
 const app = new Hono();
 
-app.get("/spotifytoken", handler.honoHandler);
+app.get("/api/spotify-token", handler.honoHandler);
 
 app.onError((err: unknown, c: Context) => {
 	logWithTimestamp("error", err);
