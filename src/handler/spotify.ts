@@ -66,7 +66,9 @@ export class SpotifyTokenHandler {
 				if (!browser) return reject(new Error("Failed to launch browser"));
 
 				const page: Page | undefined = await browser
-					.newPage()
+					.newPage({
+						userAgent: "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Mobile Safari/537.36",
+					})
 					.catch(contextLogWithUndefined.bind(null, "Failed to open new page"));
 				if (!page) {
 					await browser.close();
